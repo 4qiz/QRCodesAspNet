@@ -1,0 +1,72 @@
+﻿﻿@using VCardGenerator.ViewModels
+@model VCardViewModel
+@{
+    ViewData["Title"] = "VCard Generator";
+
+}
+<h1>Generate vcard using QRCoder</h1>
+<div class="d-flex">
+
+    <div class="w-50">
+        <form method="post" asp-controller="Home" asp-action="Index">
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label">Name</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SecondName" class="form-label">Sur Name</label>
+                <input asp-for="SecondName" class="form-control" />
+                <span asp-validation-for="SecondName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Company" class="form-label">Company</label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Job" class="form-label">Job</label>
+                <input asp-for="Job" class="form-control" />
+                <span asp-validation-for="Job" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Street" class="form-label">Street</label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class=" text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="City" class="form-label">City</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Country" class="form-label">Country</label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="WebSite" class="form-label">WebSite</label>
+                <input asp-for="WebSite" class="form-control" />
+                <span asp-validation-for="WebSite" class="text-danger"></span>
+            </div>
+
+            <input type="submit" value="Generate" class="btn btn-primary" />
+        </form>
+    </div>
+    @if (ViewBag.QRCodeImage != null)
+    {
+        <div class="w-25 h-25">
+            <img src="@ViewBag.QRCodeImage" width="400" height="400" />
+        </div>
+    }
+</div>
