@@ -1,0 +1,29 @@
+﻿@using VCardGenerator.ViewModels
+@model QRScannerViewModel;
+@{
+    ViewData["Title"] = "QRScanner";
+
+}
+<h1>QRScanner</h1>
+<div class="">
+
+    <div class="w-50">
+        <form method="post" asp-controller="QRScanner" asp-action="Index" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="QRCode" class="form-label">Name</label>
+                <input asp-for="QRCode" class="form-control" type="file" />
+                <span asp-validation-for="QRCode" class="text-danger"></span>
+            </div>
+
+
+            <input type="submit" value="Generate" class="btn btn-primary" />
+        </form>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Text" class="form-label">Text</label>
+        <textarea asp-for="Text" class="form-control" readonly ></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+
+</div>
